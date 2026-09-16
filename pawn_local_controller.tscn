@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbniq2s2385bq"]
+
+[ext_resource type="Script" uid="uid://bb68y52jc4tq2" path="res://pawn_local_controller.gd" id="1_moig0"]
+
+[node name="PawnLocalController" type="Node" unique_id=852301923]
+script = ExtResource("1_moig0")

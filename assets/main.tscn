@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cain3056xkbml"]
+
+[ext_resource type="Texture2D" uid="uid://ismr4yy2r1et" path="res://assets/textures/crosshair.png" id="1_06ig3"]
+[ext_resource type="PackedScene" uid="uid://cwemtq4fqcbvb" path="res://world.tscn" id="2_2d37k"]
+
+[node name="Main" type="Node" unique_id=399508964]
+
+[node name="HUD" type="CenterContainer" parent="." unique_id=1932041135]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD" unique_id=838358638]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_06ig3")
+
+[node name="World" parent="." unique_id=1066559415 instance=ExtResource("2_2d37k")]

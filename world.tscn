@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cwemtq4fqcbvb"]
+
+[ext_resource type="Script" uid="uid://bx2fki6tr4hgv" path="res://world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cdsske7sni080" path="res://assets/scenes/test_level.glb" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cemkc77xo8m3e" path="res://pawn.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dbniq2s2385bq" path="res://pawn_local_controller.tscn" id="3_aqk2v"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a28pv"]
+
+[node name="World" type="Node3D" unique_id=1066559415]
+script = ExtResource("1_aqk2v")
+
+[node name="Geometry" type="Node3D" parent="." unique_id=640874800]
+
+[node name="Levels" parent="Geometry" unique_id=1907257986 instance=ExtResource("1_f3sb7")]
+
+[node name="Lighting" type="Node3D" parent="." unique_id=1633462434]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=1106803180]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 24, 0)
+
+[node name="Limits" type="Node3D" parent="." unique_id=2130066230]
+
+[node name="Area3D" type="Area3D" parent="Limits" unique_id=791958687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/Area3D" unique_id=678009338]
+shape = SubResource("WorldBoundaryShape3D_a28pv")
+
+[node name="Spawns" type="Node3D" parent="." unique_id=326510592]
+
+[node name="1" type="Marker3D" parent="Spawns" unique_id=2077894300]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 0)
+
+[node name="Pawns" type="Node3D" parent="." unique_id=648319351]
+
+[node name="Pawn" parent="Pawns" unique_id=1737842527 instance=ExtResource("2_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="PawnLocalController" parent="Pawns/Pawn" unique_id=852301923 instance=ExtResource("3_aqk2v")]

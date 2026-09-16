@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cemkc77xo8m3e"]
+
+[ext_resource type="Script" uid="uid://b7qrpx73o0f60" path="res://pawn.gd" id="1_f14ny"]
+[ext_resource type="PackedScene" uid="uid://ddxsfw5mv47dx" path="res://assets/models/pawn_placeholder.glb" id="2_o6oh4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a28pv"]
+
+[node name="Pawn" type="CharacterBody3D" unique_id=1737842527]
+collision_layer = 2
+platform_floor_layers = 4294967041
+platform_wall_layers = 1
+script = ExtResource("1_f14ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1152424845]
+shape = SubResource("CapsuleShape3D_a28pv")
+
+[node name="Models" parent="." unique_id=1419379776 instance=ExtResource("2_o6oh4")]
+visible = false
+
+[node name="CamPivot" type="Marker3D" parent="." unique_id=462537058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Cam" type="Camera3D" parent="CamPivot" unique_id=156667389]
+
+[node name="RayCast3D" type="RayCast3D" parent="CamPivot/Cam" unique_id=1112762782]
+target_position = Vector3(0, 0, -1000)
