@@ -23,5 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		pawn.look += event.screen_relative * SENSITIVITY
 		pawn.update_look()
+	if event is InputEventMouseButton:
+		# need this to recapture in the appropriate context on web
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 	pawn.movement = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
