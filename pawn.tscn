@@ -17,10 +17,16 @@ shape = SubResource("CapsuleShape3D_a28pv")
 [node name="Models" parent="." unique_id=1419379776 instance=ExtResource("2_o6oh4")]
 visible = false
 
-[node name="CamPivot" type="Marker3D" parent="." unique_id=462537058]
+[node name="BobPivot" type="Marker3D" parent="." unique_id=462537058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Cam" type="Camera3D" parent="CamPivot" unique_id=156667389]
+[node name="PitchPivot" type="Marker3D" parent="BobPivot" unique_id=2056667096]
 
-[node name="RayCast3D" type="RayCast3D" parent="CamPivot/Cam" unique_id=1112762782]
+[node name="Cam" type="Camera3D" parent="BobPivot/PitchPivot" unique_id=156667389]
+
+[node name="Look" type="RayCast3D" parent="BobPivot/PitchPivot/Cam" unique_id=1112762782]
 target_position = Vector3(0, 0, -1000)
+
+[node name="Ledge" type="RayCast3D" parent="." unique_id=493747968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.7)
+target_position = Vector3(0, -0.8, 0)
