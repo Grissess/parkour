@@ -1,6 +1,7 @@
 extends Node
 
 const SENSITIVITY = Vector2(-0.01, 0.01)
+const JUMP_ASSIST = false
 
 const Pawn = preload("res://pawn.gd")
 @onready var pawn: Pawn = get_parent()
@@ -12,12 +13,15 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	pawn.ready.disconnect(self.set_camera)
+	Global.active_pawn = null
 	
 func set_camera() -> void:
 	pawn.camera.current = true
+	Global.active_pawn = pawn
 	
 func _process(_delta: float) -> void:
-	pawn.jump = Input.is_action_just_pressed("move_jump")
+	pawn.jump = Input.is_action_pressed("move_jump") if JUMP_ASSIST else Input.is_action_just_pressed("move_jump")
+	pawn.crouch = Input.is_action_pressed("move_crouch")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

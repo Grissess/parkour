@@ -11,7 +11,7 @@ platform_floor_layers = 4294967041
 platform_wall_layers = 1
 script = ExtResource("1_f14ny")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1152424845]
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1152424845]
 shape = SubResource("CapsuleShape3D_a28pv")
 
 [node name="Models" parent="." unique_id=1419379776 instance=ExtResource("2_o6oh4")]

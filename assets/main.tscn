@@ -2,6 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://ismr4yy2r1et" path="res://assets/textures/crosshair.png" id="1_06ig3"]
 [ext_resource type="PackedScene" uid="uid://cwemtq4fqcbvb" path="res://world.tscn" id="2_2d37k"]
+[ext_resource type="Script" uid="uid://brpa8dkk5nht6" path="res://damage.gd" id="3_2d37k"]
+
+[sub_resource type="Gradient" id="Gradient_06ig3"]
+colors = PackedColorArray(1, 0, 0, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a28pv"]
+gradient = SubResource("Gradient_06ig3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node" unique_id=399508964]
 
@@ -20,3 +29,13 @@ offset_transform_scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_06ig3")
 
 [node name="World" parent="." unique_id=1066559415 instance=ExtResource("2_2d37k")]
+
+[node name="Damage" type="TextureRect" parent="." unique_id=279344773]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_a28pv")
+script = ExtResource("3_2d37k")
